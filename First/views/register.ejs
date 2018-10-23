@@ -1,0 +1,76 @@
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      body{
+          background-image: url(" /image/1.jpg");
+      }
+  #lb1{
+      color: brown;
+      font-size: 60px;
+      text-align: center
+  }
+  .ac{
+      margin: 1em;
+      width: 30em;
+      height: 2.5em;
+  }
+  #formlogin{
+      margin-top: 3em;
+     text-align: center
+  }
+ #formlogin a input{
+     width: 100px;
+     height: 30px;
+     margin: 10px;
+      padding: 5px;
+      border: 2px solid #4CAF50; 
+      border-radius: 4px;
+  }
+  #formlogin #dk{
+     width: 100px;
+     height: 30px;
+     margin: 10px;
+      padding: 5px;
+      border: 2px solid #4CAF50; 
+      border-radius: 4px;
+  }
+  #notice{
+      text-align: center;
+  }
+  #notice ul {
+      list-style: none;
+      font-size: 15px;
+      color: red
+  }
+  </style>
+    <title>Login Account</title>
+    </head>
+    <body>
+        <div>
+                <div id = "lb1"> Register Account </div>
+                <div id = "notice">
+                        <% if(errors){ %>
+                            <ul>
+                                <% errors.forEach(function(error){ %>
+                                    <li class ="register-validator"><%= error.msg %></li>
+                                <% }) %>
+                            </ul>
+                        <% } %>
+                    </div>
+                <div id = "formlogin">
+                <form method="POST" action="/register/account">
+                <input type="text" placeholder="User name" class="ac" name="username"><br>
+                <input type="password" placeholder="Password" class="ac" name = "user_password_1"><br>
+                <input type="password" placeholder="Xác nhận Password" class="ac" name = "user_password_2"><br>
+                <input type="email" placeholder="Gmail" class="ac" name="email"><br>
+                <input type="submit" value="Register" id = "dk">
+                <a href="/login/account"><input type="button" value="Cancel"></a>
+                <a href="/"><input type="button" value="Page Home"></a>
+                </form></div>
+        </div> 
+
+    </body>
+</html>

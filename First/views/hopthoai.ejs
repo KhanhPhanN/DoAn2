@@ -1,0 +1,14 @@
+<div id="showhopthoai"><dialog id="hopthoai" type="hidden"><form method="POST" action="/save">
+    <div id="tieude"><label id = "tieude1" name="tieude1">Tiêu đề:</label> 
+    <span id ="sn" class="type" style="background-color: blue">Sinh nhật</span>
+    <span id="ch" class="type" style="background-color: rgb(93,219,55)">Cuộc họp</span>
+    <span id="nn" class="type" style="background-color: rgb(195,236,98)">Nhắc nhở</span> <br />
+</div>
+    <textarea rows="5" cols="50" name="description" placeholder="ghi công việc" id = "node"></textarea><br>
+   <input type="text" name="data" id="data">
+    <input type="submit" value="Save" id = "save">
+    <input type="button" value="Cancel" id="cancel">
+    <span id ="time" name="time"></span>
+    <label id="date"><%- ngay%>-<%- thang%>-<%- nam%></label>
+    </form></dialog>
+</div> 

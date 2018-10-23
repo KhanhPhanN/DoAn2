@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      body{
+          background-image: url(" /image/1.jpg");
+      }
+  #lb1{
+      color: brown;
+      font-size: 60px;
+      text-align: center
+  }
+  .ac{
+      margin: 1em;
+      width: 30em;
+      height: 2.5em;
+  }
+  #formlogin{
+      margin-top: 10em;
+     text-align: center
+  }
+ #formlogin a input{
+     width: 100px;
+     height: 30px;
+     margin: 10px;
+      padding: 5px;
+      border: 2px solid #4CAF50; 
+      border-radius: 4px;
+  }
+  </style>
+    <title>Login Account</title>
+    </head>
+    <body>
+        <div>
+                <div id = "lb1"> Login for System</div>
+                <div id = "formlogin"><form method="POST" action="/login">
+                <input type="text" placeholder="User name" class="ac" name = "user_name"><br>
+                <input type="password" placeholder="Password" class="ac" name = "user_password"><br>
+                <a href="#"><span id="quen">Forger Password</span></a><br>
+                <input type="submit" value="Login">
+                <a href="/register"><input type="button" value="Register"></a>
+                </form></div>
+        </div>
+
+    </body>
+</html>

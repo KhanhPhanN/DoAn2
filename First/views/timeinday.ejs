@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dinhdangngay.css">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <script src="js/congviec.js"></script>
+    <script>
+   
+    
+    </script>
+</head>
+<body>
+    <div id = "chi-tiet">
+    <label >Ngày: </label><span id = "ngay"><%- ngay%></span><br>
+    <label >Tháng: </label><span id = "nam"><%- thang%></span><br>
+    <label >Năm: </label><span id = "nam"><%- nam%></span><br>
+    <label > Thời gian công việc trong ngày </label>
+    <dialog id="hopthoai"><form>
+            Mieu ta: <br />
+            <textarea rows="5" cols="50" name="description" placeholder="ghi công việc" id = "node"></textarea><br>
+            <input type="button" value="Save" id = "save">
+            <input type="button" value="Cancel" id="cancel">
+            <span id ="time"></span>
+            <span><%- ngay%>-<%- thang%>-<%- nam%></span>
+            </form></dialog>
+    <table id ="list">
+        <tr>
+          <th class="gio" id="t1">0-0h:30</th> 
+          <th id = "f1" ></th>
+        </tr>
+        <tr>
+            <th class="gio" id ="t2">0h:30-1</th> 
+            <th id = "f2"></th>
+        </tr>
+        <tr>
+            <th class="gio" id ="t3">1-1:30</th> 
+            <th id = "f3"></th>
+        </tr>
+        <tr>
+            <th class="gio" id ="t4">1:30-2</th> 
+            <th id = "f4"></th>
+    </tr>
+        <tr>
+            <th class="gio" id ="t5">2-2:30</th> 
+            <th id = "f5"></th>
+        </tr>
+        <tr>
+                <th class="gio" id ="t6">2:30-3</th> 
+                <th id = "f6"></th>
+              </tr>
+              <tr>
+                  <th class="gio" id ="t7">3-3:30</th> 
+                  <th id = "f7"></th>
+              </tr>
+              <tr>
+                  <th class="gio" id ="t8">3:30-4</th> 
+                  <th id = "f8"></th>
+              </tr>
+              <tr>
+                  <th class="gio" id ="t9">4-4:30</th> 
+                  <th id = "f9" ></th>
+          </tr>
+              <tr>
+                  <th class="gio" id ="t10">4:30-5</th> 
+                  <th id = "f10"></th>
+              </tr>
+              <tr>
+                    <th class="gio" id ="t11">5-5:30</th> 
+                    <th id = "f11"></th>
+                  </tr>
+                  <tr>
+                      <th class="gio" id ="t12">5:30-6</th> 
+                      <th id = "f12"></th>
+                  </tr>
+                  <tr>
+                      <th class="gio" id ="t13"> 6-6:30</th> 
+                      <th id = "f13"></th>
+                  </tr>
+                  <tr>
+                      <th class="gio" id ="t14">6:30-7</th> 
+                      <th id = "f14"></th>
+              </tr>
+                  <tr>
+                      <th class="gio" id ="t15">7-7:30</th> 
+                      <th id = "f15"></th>
+                  </tr>
+                  <tr>
+                          <th class="gio" id ="t16">7:30-8</th> 
+                          <th id = "f16"></th>
+                        </tr>
+                        <tr>
+                            <th class="gio" id ="t17">8-8:30</th> 
+                            <th id = "f17"></th>
+                        </tr>
+                        <tr>
+                            <th class="gio" id ="t18">8:30-9</th> 
+                            <th id = "f18"></th>
+                        </tr>
+                        <tr>
+                            <th class="gio" id ="t19">9-9:30</th> 
+                            <th id = "f19"></th>
+                    </tr>
+                        <tr>
+                            <th class="gio" id ="t20">9:30-10</th> 
+                            <th id = "f20"></th>
+                        </tr>
+                        <tr>
+                                <th class="gio" id ="t21">10-10:30</th> 
+                                <th id = "f21"></th>
+                              </tr>
+                              <tr>
+                                  <th class="gio" id ="t22">10:30-11</th> 
+                                  <th id = "f22"></th>
+                              </tr>
+                              <tr>
+                                  <th class="gio" id ="t23">11-11:30</th> 
+                                  <th id = "f23"></th>
+                              </tr>
+                              <tr>
+                                  <th class="gio" id ="t24">11:30-12</th> 
+                                  <th id = "f24"></th>
+                          </tr>
+                              <tr>
+                                  <th class="gio" id ="t25">12-12:30</th> 
+                                  <th id = "f25"></th>
+                              </tr>
+                              <tr>
+                                      <th class="gio" id ="t26">12:30-13</th> 
+                                      <th id = "f26"></th>
+                                    </tr>
+                                    <tr>
+                                        <th class="gio" id ="t27">13-13:30</th> 
+                                        <th id = "f27"></th>
+                                    </tr>
+                                    <tr>
+                                        <th class="gio" id ="t28">13:30-14</th> 
+                                        <th id = "f28"></th>
+                                    </tr>
+                                    <tr>
+                                        <th class="gio" id ="t29">14-14:30</th> 
+                                        <th id = "f29"></th>
+                                </tr>
+                                    <tr>
+                                        <th class="gio" id ="t30">14:30-15</th> 
+                                        <th id = "f30"></th>
+                                    </tr>       
+                                    <tr>
+                                            <th class="gio" id ="t31">15-15:30</th> 
+                                            <th id = "f31"></th>
+                                          </tr>
+                                          <tr>
+                                              <th class="gio" id ="t32">15:30-16</th> 
+                                              <th id = "f32"></th>
+                                          </tr>
+                                          <tr>
+                                              <th class="gio" id ="t33">16-16:30</th> 
+                                              <th id = "f33"></th>
+                                          </tr>
+                                          <tr>
+                                              <th class="gio" id ="t34">16:30-17</th> 
+                                              <th id = "f34"></th>
+                                      </tr>
+                                          <tr>
+                                              <th class="gio" id ="t35">17-17:30</th> 
+                                              <th id = "f35"></th>
+                                          </tr>
+                                          <tr>
+                                                  <th class="gio" id ="t36">17:30-18</th> 
+                                                  <th id = "f36"></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="gio" id ="t37">18-18:30</th> 
+                                                    <th id = "f37"></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="gio" id ="t38">18:30-19</th> 
+                                                    <th id = "f38"></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="gio" id ="t39">19-19:30</th> 
+                                                    <th id = "f39"></th>
+                                            </tr>
+                                                <tr>
+                                                    <th class="gio" id ="t40">19:30-20</th> 
+                                                    <th id = "f40"></th>
+                                                </tr>    
+                                                <tr>
+                                                        <th class="gio" id ="t41">20-20:30</th> 
+                                                        <th id = "f41"></th>
+                                                      </tr>
+                                                      <tr>
+                                                          <th class="gio" id ="t42">20:30-21</th> 
+                                                          <th id = "f42"></th>
+                                                      </tr>
+                                                      <tr>
+                                                          <th class="gio" id ="t43">21-21:30</th> 
+                                                          <th id = "f43"></th>
+                                                      </tr>
+                                                      <tr>
+                                                          <th class="gio" id ="t44">21:30-22</th> 
+                                                          <th id = "f44"></th>
+                                                  </tr>
+                                                      <tr>
+                                                          <th class="gio" id ="t45">22-22:30</th> 
+                                                          <th id = "f45"></th>
+                                                      </tr>
+                                                      <tr>
+                                                              <th class="gio" id ="t46">22:30-23</th> 
+                                                              <th id = "f46"></th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="gio" id ="t47">23-23:30</th> 
+                                                                <th id = "f47"></th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="gio" id ="t48">23:30-0</th> 
+                                                                <th id = "f48"></th>
+                                                            </tr>                      
+    </table>
+</div>
+</body>
+</html>

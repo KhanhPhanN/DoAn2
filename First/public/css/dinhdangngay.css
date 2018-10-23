@@ -1,0 +1,32 @@
+#list{
+    border-spacing: 0px;
+   border: 0.1px solid rgba(168, 168, 187, 0.8);
+}
+#header{
+  height: 40px;
+} 
+#showhopthoai{
+    display:none
+}
+#container-table{
+    width: 100%;
+    height: 450px;
+    overflow: auto;
+}
+#list tr th{
+    border: 1px solid rgba(168, 168, 187, 0.8);
+    height: 30px;
+}
+.gio{
+    width: 15%;
+}
+/* #f1, #f2,#f3,#f4,#f5,#f6, #f7,#f8,#f9,#f10,#f11, #f12,#f13,#f14,#f15,#f16, #f17,#f18,#f19,#f20,#f11, #f12,#f13,#f14,#f15,#f16, #f17,#f18,#f19,#f30,
+#f31, #f32,#f33,#f34,#f35,#f36, #f37,#f38,#f39,#f40,#f41, #f42,#f43,#f44,#f45,#f46, #f47,#f48{
+    width: 100em;
+} */
+#f1, #f2,#f3,#f4,#f5,#f6, #f7,#f8,#f9,#f10,#f11, #f12,#f13,#f14,#f15,#f16, #f17,#f18,#f19,#f20,#f11, #f12,#f13,#f14,#f15,#f16, #f17,#f18,#f19,#f30,
+#f31, #f32,#f33,#f34,#f35,#f36, #f37,#f38,#f39,#f40,#f41, #f42,#f43,#f44,#f45,#f46, #f47,#f48 {
+width: 100em;
+height: 100%;
+overflow-wrap: break-word;
+}

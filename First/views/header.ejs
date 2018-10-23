@@ -1,0 +1,8 @@
+<% if(!user){%>
+    <a href="/login/account"><span id="login">Đăng nhập</span></a>
+    <a href="/register"><span id="signup">Đăng ký</span></a>
+    <%}%>
+<%if(user){%>
+    <span id="login">Hello: <%= user[0].account %></span>
+    <a href="/"><span id="logout">Log out</span></a>
+    <%}%>

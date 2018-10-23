@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dinhdangngay.css">
+    <script src="js/jquery.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/congviec.js"></script> -->
+    <title>Document</title>
+</head>
+<body onload="KhoiDong1(<%- thang%>,<%- nam%>)" background='https://fptshop.com.vn/Uploads/images/2015/Tin-Tuc/Vichan/122016/anh-nen/tai-anh-nen-cuc-dep-cho-may-tinh-theo-chu-de-truu-tuong-fptshop-1.jpg'>
+    <div class="container">
+            <div id="header">
+                    <% include header%>
+                </div>
+            <div class="row">
+                
+                    <div class="col-sm-3">        
+                        <div id ="current">
+                            <span>Lịch</span>
+                            <a href="/<%-ngay1%>-<%-thang1%>-<%-nam1%>"><input type="button" value="Hôm nay" id ="currentbt"></a>
+                    </div>
+                        <div class="month">      
+                            <img src="image/back.png" width="30px" height="20px" id="prev" >
+                            <img src="image/next.png" width="30px" height="20px" id="next" >
+                            <label>Tháng: </label><span id="thang"  ></span><br>
+                            <label id = "lb2">Năm: </label><span id="nam" ></span>
+                        </div>
+                       
+                        <ul class="weekdays">
+                          <li>CN</li>
+                          <li>Thứ 2</li>
+                          <li>Thứ 3</li>
+                          <li>Thứ 4</li>
+                          <li>Thứ 5</li>
+                          <li>Thứ 6</li>
+                          <li>Thứ 7</li>
+                        </ul>
+                      
+                  <table id="days">
+                      </table><hr>
+                      <div>
+                        Lịch của tôi<br>
+                        <div class="color-wrapper">
+
+                               
+                            <span class="Event">Sinh nhật</span>
+                            <span class="color-holder-1 call-picker-1" style="background-color: <%- colorSinhnhat%>"></span>
+                        
+                            <div class="color-picker" id="color-picker-1" style="display:none" ></div>
+                        
+                        </div>
+                        <div class="color-wrapper">
+
+                               
+                            <span class="Event">Cuộc họp</span>
+                            <span class="color-holder-2 call-picker-2" style="background-color: <%- colorCuochop%>"></span>
+                        
+                            <div class="color-picker" id="color-picker-2" style="display:none" ></div>
+                        
+                        </div>
+                        <div class="color-wrapper">
+
+                           
+                            <span class="Event">Nhắc nhở</span>
+                            <span class="color-holder-3 call-picker-3" style="background-color: <%- colorNhacnho%>"></span>
+                        
+                            <div class="color-picker" id="color-picker-3" style="display:none" ></div>
+                        
+                        </div>
+                    </div>
+                    </div>
+                        <div class="col-sm-9">  <div id = "chi-tiet">
+                                <label >Ngày: </label><span id = "ngay"><%- ngay%></span><br>
+                                <label >Tháng: </label><span id = "thangcv"><%- thang%></span><br>
+                                <label >Năm: </label><span id = "namcv"><%- nam%></span><br>
+                                <label > Thời gian công việc trong ngày </label>
+                                <% include hopthoai%> 
+                               <div id ="container-table">  <% include drawnode%>
+                            </div>
+                            </div>
+                        </div>
+      </div>
+</body>
+<link rel="stylesheet" href="css/đinhang.css">
+<style>
+        #d<%- ngay+thang+nam %> {
+           background-color: #98a0ad;
+           border-radius: 50%;
+        }
+        </style>
+        <script>
+      for(var i =1; i<=48; i++){
+        if($("#t"+i).html()=="<%-time%>"){
+            if("<%- title%>"=="Sinh nhật")
+            $("#f"+i).attr("style","background-color: <%- colorSinhnhat%>");
+            else if("<%- title%>"=="Cuộc họp")
+            $("#f"+i).attr("style","background-color: <%- colorCuochop%>");
+            else if("<%- title%>"=="Nhắc nhở")
+            $("#f"+i).attr("style","background-color: <%- colorNhacnho%>");
+            else
+            $("#f"+i).attr("style","background-color: #5d95ef");
+            $("#f"+i).html("<%- describle%>");
+        }
+    }
+    <% if(!user){%>
+for(var i =1 ;i<49;i++){
+    $("#f"+i).click(function(){
+        alert("Bạn chưa đăng nhập")
+    })
+}
+<%}else{%>
+ <% include nodework %>
+    <%}%>
+            </script>
+</html>
