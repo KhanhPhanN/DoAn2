@@ -50,7 +50,7 @@
 
                                
                                 <span class="Event">Sinh nhật</span>
-                                <span class="color-holder-1 call-picker-1" style="background-color: blue"></span>
+                                <span class="color-holder-1 call-picker-1" style="background-color: <%= user1[0].colorSinhNhat%>"></span>
                             
                                 <div class="color-picker" id="color-picker-1" style="display:none" ></div>
                             
@@ -59,7 +59,7 @@
 
                                
                                 <span class="Event">Cuộc họp</span>
-                                <span class="color-holder-2 call-picker-2" style="background-color: rgb(51, 230, 45)"></span>
+                                <span class="color-holder-2 call-picker-2" style="background-color:<%= user1[0].colorCuocHop%>"></span>
                             
                                 <div class="color-picker" id="color-picker-2" style="display:none" ></div>
                             
@@ -68,7 +68,7 @@
 
                                
                                 <span class="Event">Nhắc nhở</span>
-                                <span class="color-holder-3 call-picker-3" style="background-color: rgb(198, 212, 65)"></span>
+                                <span class="color-holder-3 call-picker-3" style="background-color:<%= user1[0].colorNhacNho%>"></span>
                             
                                 <div class="color-picker" id="color-picker-3" style="display:none" ></div>
                             
@@ -78,10 +78,11 @@
                     
                     </div>
                         <div class="col-sm-9">  <div id = "chi-tiet">
-                                <label >Ngày: </label><span id = "ngay"><%- ngay%></span><br>
-                                <label >Tháng: </label><span id = "thangcv"><%- thang%></span><br>
+                                <label >Ngày: </label><span id = "ngay"><%- ngay%></span>
+                                <label >Tháng: </label><span id = "thangcv"><%- thang%></span>
                                 <label >Năm: </label><span id = "namcv"><%- nam%></span><br>
-                                <label > Thời gian công việc trong ngày </label>
+                                <label > Thời gian công việc trong ngày </label><br>
+                                <input type="button" value="Đặt lịch cho cả ngày" id ="allday"><br><br>
                                 <% include hopthoai%>
                                <div id ="container-table">
                                    <% include drawnode%>
@@ -93,6 +94,9 @@
 <link rel="stylesheet" href="css/đinhang.css">
 <script>
 <% if(!user){%>
+    $("#allday").click(function(){
+        alert("Bạn chưa đăng nhập")
+         })
 for(var i =1 ;i<49;i++){
     $("#f"+i).click(function(){
         alert("Bạn chưa đăng nhập")
@@ -101,12 +105,16 @@ for(var i =1 ;i<49;i++){
 <%}else{%>
  <% include nodework %>
  <% work.forEach(function(data){%>
- if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){       
+ if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){   
+     if("<%- data.time_end%>".valueOf()=="23:59".valueOf()){
+        $(".descri").attr("style","background-color: #5d95ef");
+            $("#f"+1).html("<%- data.describle%>");
+     }
 for(var i =1; i<=48; i++){
     var time1 = $("#t"+i).html().split("-"); 
     var timestart =  time1[0];
     var timesend =  time1[1];
-        if(timestart==<%- data.time_start%>){
+        if(time1[0].valueOf()=="<%- data.time_start%>".valueOf()){
             $("#f"+i).attr("style","background-color: #5d95ef");
             $("#f"+i).html("<%- data.describle%>");
         }

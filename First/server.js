@@ -38,7 +38,6 @@ console.log("Ket noi thanh cong ...")
 socket.on("thong-tin", function(){
     
 })
-
 })
 app.post('/register/account', function (req, res) {
 	var name = req.body.username;
@@ -66,9 +65,10 @@ app.post('/register/account', function (req, res) {
 var result1=0;
 app.get("/", function(req,res){ 
     var current = new Date();
-    result1 = null;
+    resultcolorstart = [{colorSinhNhat:" blue",colorCuocHop: "green", colorNhacNho: "yellow"}];
 res.render("lich",{
-    user: result1,
+    user1: resultcolorstart,
+    user : result1,
 ngay : current.getDate(),
 thang : current.getMonth()+1,
 nam: current.getFullYear()
@@ -97,33 +97,59 @@ app.get("/register",function(req,res){
     var colorCuochop="rgb(93,219,55)";
     var colorNhacnho="rgb(195,236,98)";
 
-
+var userN ="";
 
 app.get("/:id", function(req,res){
     var url = req.params.id;
     var MongoClient = require('mongodb').MongoClient;
 var urldata = "mongodb://localhost:27017/";
-
+var data = url.split("-");
 MongoClient.connect(urldata, function(err, db) {
   if (err) throw err;
   var dbo = db.db("Calendar");
-  dbo.collection("EventCalendar").find({}).toArray(function(err, result) {
+  dbo.collection("EventCalendar").find({account: userN,day: data[0], month: data[1], year: data[2]}).toArray(function(err, result) {
     if (err) throw err;
     var current = new Date();
-    var data = url.split("-");
-    res.render("ChiTiet",{
-        user: result1,
-        work : result,
-        ngay : data[0],
-        thang: data[1],
-        nam  : data[2],
-        ngay1 : current.getDate(),
+    if(!result1){
+
+        res.render("ChiTiet",{
+            user: result1,
+            work : result,
+            ngay : data[0],
+            thang: data[1],
+            nam  : data[2],
+            ngay1 : current.getDate(),
+    thang1 : current.getMonth()+1,
+    nam1: current.getFullYear(),
+    colorSinhnhat : colorSinhnhat,
+    colorCuochop: colorCuochop,
+    colorNhacnho: colorNhacnho, 
+        });
+
+    }else{
+
+dbo.collection("User ").find({account: userN}).toArray(function(err, resultName){
+
+if(err) throw err;
+res.render("ChiTiet",{
+    user: resultName,
+    work : result,
+    ngay : data[0],
+    thang: data[1],
+    nam  : data[2],
+    ngay1 : current.getDate(),
 thang1 : current.getMonth()+1,
 nam1: current.getFullYear(),
-colorSinhnhat : colorSinhnhat,
-colorCuochop: colorCuochop,
-colorNhacnho: colorNhacnho
-    });
+colorSinhnhat : resultName[0].colorSinhNhat,
+colorCuochop: resultName[0].colorCuocHop,
+colorNhacnho: resultName[0].colorNhacNho, 
+});
+
+})
+
+
+    }
+  
 
 
     db.close();
@@ -132,8 +158,7 @@ colorNhacnho: colorNhacnho
  
     });
 
-    app.post("/save", function(req,res){
-   
+    app.post("/save", function(req,res1){
     dataclient = req.body.data;
     datarev = dataclient.split("/");
     title = datarev[0];
@@ -154,30 +179,132 @@ var url = "mongodb://localhost:27017/";
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("Calendar");
-  var myobj = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year, describle: describle };
-  dbo.collection("EventCalendar").insertOne(myobj, function(err, res) {
-    if (err) throw err;
-  });
-  dbo.collection("EventCalendar").find().toArray(function(err,kq){
-    res.render("lich1",{
-        user: result1,
-        work: kq,
-        ngay : day,
-        thang : month,
-        nam : year,
-        title: title,
-        describle: describle,
-        time: time_start+'-'+time_end,
-        colorSinhnhat : colorSinhnhat,
-        colorCuochop: colorCuochop,
-        colorNhacnho: colorNhacnho
-    });
-
-    db.close();
+  var acc = {account: result1[0].account};
+  var color = {$set: {colorSinhNhat: colorSinhnhat,colorCuocHop: colorCuochop, colorNhacNho: colorNhacnho}};
+  dbo.collection("User ").updateOne(acc,color,function(err,res){
+      if(err) throw err;
   })
+  var myobj = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year, describle: describle };
+  var myobj1 = {$set: {describle: describle }};
+  var where = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year}
+  dbo.collection("EventCalendar").findOne(where,function(err ,result){
+if(err) throw err;
+dbo.collection("User ").find({account: userN}).toArray(function (err,res) {
+    if(!result){
+        dbo.collection("EventCalendar").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+          });
+          dbo.collection("EventCalendar").find().toArray(function(err,kq){
+            console.log(res);
+            res1.render("lich1",{
+                user: res,
+                work: kq,
+                ngay : day,
+                thang : month,
+                nam : year,
+                title: title,
+                describle: describle,
+                time: time_start+'-'+time_end,
+                colorSinhnhat : res[0].colorSinhNhat,
+                colorCuochop: res[0].colorCuocHop,
+                colorNhacnho: res[0].colorNhacNho,
+            });
+            db.close();
+          })
+    
+    
+    }else{
+        
+        dbo.collection("EventCalendar").updateOne(where,myobj1, function(err, res) {
+            if (err) throw err;
+          });
+          dbo.collection("EventCalendar").find().toArray(function(err,kq){
+            res1.render("lich1",{
+                user: res,
+                work: kq,
+                ngay : day,
+                thang : month,
+                nam : year,
+                title: title,
+                describle: describle,
+                time: time_start+'-'+time_end,
+                colorSinhnhat : res[0].colorSinhnhat,
+                colorCuochop: res[0].colorCuocHop,
+                colorNhacnho: res[0].colorNhacNho,
+            });
+            db.close();
+          })
+    
+        
+    }
+
+
+})
+
+
+
+
+  })
+ 
 });
   
     })
+app.post("/delete",function(req,res){
+   var dataclientd = req.body.data1;
+   var datarevd = dataclientd.split("/");
+   var titled = datarevd[0];
+   var describled = datarevd[1];
+   var timed = datarevd[2].split("-");
+   var time_startd = timed[0];
+   var time_endd   = timed[1];
+   var fulld = datarevd[3].split("-");
+   var dayd = fulld[0];
+   var monthd = fulld[1];
+   var yeard = fulld[2];
+   var colorSinhnhatd = datarevd[4];
+   var colorCuochopd = datarevd[5];
+   var colorNhacnhod = datarevd[6];
+
+   var MongoClient = require('mongodb').MongoClient;
+   var url = "mongodb://localhost:27017/";
+   
+   MongoClient.connect(url, function(err, db) {
+     if (err) throw err;
+     var dbo = db.db("Calendar");
+     var myquery = { account: userN,day: dayd,month: monthd, year: yeard, time_start: time_startd,time_end: time_endd };
+     dbo.collection("EventCalendar").deleteOne(myquery, function(err, obj) {
+       if (err) throw err;
+       console.log("1 document deleted");
+
+     });
+     dbo.collection("User ").find({account: userN}).toArray(function(err, info){
+
+        dbo.collection("EventCalendar").find().toArray(function(err,kq){
+            res.render("lich1",{
+                user: info,
+                work: kq,
+                ngay : dayd,
+                thang : monthd,
+                nam : yeard,
+                title: titled,
+                describle: describled,
+                time: time_start+'-'+time_endd,
+                colorSinhnhat : info[0].colorSinhNhat,
+                colorCuochop: info[0].colorCuocHop,
+                colorNhacnho: info[0].colorNhacNho,
+            });
+        
+            db.close();
+          })
+
+
+     })
+
+   });
+
+
+})
+
          app.post("/login",function(req,res){
              var user_name = req.body.user_name;
              var password = req.body.user_password; 
@@ -190,17 +317,21 @@ MongoClient.connect(url, function(err, db) {
               var query = {account: user_name, password: password};
               dbo.collection("User ").find(query).toArray( function(err, result) {
                 if (err) throw err;
+                userN = user_name;
                 result1 = result;
-                dbo.collection("EventCalendar").find({}).toArray(function(err1, event ){
+                dbo.collection("EventCalendar").find({account: user_name}).toArray(function(err1, event ){
                     if(result.length==1){
+                        var color = [{colorSinhNhat: result[0].colorSinhNhat,colorCuocHop: result[0].colorCuocHop,colorNhacNho: result[0].colorNhacNho}]
                         var current = new Date();
-                        console.log(event);
     res.render("lich",{
         user: result,
+        user1: color,
         work: event,
     ngay : current.getDate(),
     thang : current.getMonth()+1,
-    nam: current.getFullYear()})
+    nam: current.getFullYear(),
+    }
+    )
                     }else{
                         res.render('login');
                     }

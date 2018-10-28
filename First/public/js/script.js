@@ -102,205 +102,14 @@ function ChayLui(nam,thang){
 
 $(document).ready(function(){
     $("#data").hide();
+     $("#data1").hide();
     $("#next").click(function(){
         ChayTang(parseInt($("#nam").html()),parseInt($("#thang").html()));
         });
      $("#prev").click(function(){
         ChayLui(parseInt($("#nam").html()),parseInt($("#thang").html()));
             });
-        
-        // $("#f1").mouseup( function(){
-        //         $("#time").html($("#t1").html())
-        //         $("#showhopthoai").show()
-        // });
-        // $("#f2").click( function(){
-        //     $("#time").html($("#t2").html())
-        //    $("#showhopthoai").show();
-        // });
-        // $("#f3").click( function(){
-        //     $("#time").html($("#t3").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f4").click( function(){
-        //     $("#time").html($("#t4").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f5").click( function(){
-        //     $("#time").html($("#t5").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f6").click( function(){
-        //     $("#time").html($("#t6").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f7").click( function(){
-        //     $("#time").html($("#t7").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f8").click( function(){
-        //     $("#time").html($("#t8").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f9").click( function(){
-        //     $("#time").html($("#t9").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f10").click( function(){
-        //     $("#time").html($("#t10").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f11").click( function(){
-        //     $("#time").html($("#t11").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f12").click( function(){
-        //     $("#time").html($("#t12").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f13").click( function(){
-        //     $("#time").html($("#t13").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f14").click( function(){
-        //     $("#time").html($("#t14").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f15").click( function(){
-        //     $("#time").html($("#t15").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f16").click( function(){
-        //     $("#time").html($("#t16").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f17").click( function(){
-        //     $("#time").html($("#t17").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f18").click( function(){
-        //     $("#time").html($("#t18").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f19").click( function(){
-        //     $("#time").html($("#t19").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f20").click( function(){
-        //     $("#time").html($("#t20").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f21").click( function(){
-        //     $("#time").html($("#t21").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f22").click( function(){
-        //     $("#time").html($("#t22").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f23").click( function(){
-        //     $("#time").html($("#t23").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f24").click( function(){
-        //     $("#time").html($("#t24").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f25").click( function(){
-        //     $("#time").html($("#t25").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f26").click( function(){
-        //     $("#time").html($("#t26").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f27").click( function(){
-        //     $("#time").html($("#t27").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f28").click( function(){
-        //     $("#time").html($("#t28").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f29").click( function(){
-        //     $("#time").html($("#t29").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f30").click( function(){
-        //     $("#time").html($("#t30").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f31").click( function(){
-        //     $("#time").html($("#t31").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f32").click( function(){
-        //     $("#time").html($("#t32").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f33").click( function(){
-        //     $("#time").html($("#t33").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f34").click( function(){
-        //     $("#time").html($("#t34").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f35").click( function(){
-        //     $("#time").html($("#t35").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f36").click( function(){
-        //     $("#time").html($("#t36").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f37").click( function(){
-        //     $("#time").html($("#t37").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f38").click( function(){
-        //     $("#time").html($("#t38").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f39").click( function(){
-        //     $("#time").html($("#t39").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f40").click( function(){
-        //     $("#time").html($("#t40").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f41").click( function(){
-        //     $("#time").html($("#t41").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f42").click( function(){
-        //     $("#time").html($("#t42").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f43").click( function(){
-        //     $("#time").html($("#t43").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f44").click( function(){
-        //     $("#time").html($("#t44").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f45").click( function(){
-        //     $("#time").html($("#t45").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f46").click( function(){
-        //     $("#time").html($("#t46").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f47").click( function(){
-        //     $("#time").html($("#t47").html())
-        //     $("#showhopthoai").show();
-        // });
-        // $("#f48").click( function(){
-        //     $("#time").html($("#t48").html())
-        //     $("#showhopthoai").show();
-        // });
+  
         var colorList = ['000000', '993300', '333300', '003300', '003366', '000066', '333399', '333333',
 
         '660000', 'FF6633', '666633', '336633', '336666', '0066FF', '666699', '666666', 'CC3333', 'FF9933', '99CC33', '669966', '66CCCC', '3366FF', '663366', '999999', 'CC66FF', 'FFCC33', 'FFFF66', '99FF66', '99CCCC', '66CCFF', '993366', 'CCCCCC', 'FF99CC', 'FFCC99', 'FFFF99', 'CCffCC', 'CCFFff', '99CCFF', 'CC99FF', 'FFFFFF'];
@@ -403,18 +212,12 @@ $(document).ready(function(){
         
             });
             function save(){
-                for(var i=1;i<49;i++){
-                if($("#time").html()==$("#t"+i).html()){
-                $("#f"+i).html($("#node").val());
                 var d1= $("#tieude1").html();
                 var d2= $("#node").val();
                 var d3= $("#time").html();
                 var d4= $("#date").html();
                $("#data").val(d1+"/"+d2+"/"+d3+"/"+d4+"/"+color1+"/"+color2+"/"+color3);
                $("#node").val("");
-                }
-            }
-             
             }
             $("#sn").click(function(){
                 $("#tieude1").html("Sinh nhật")
@@ -439,6 +242,18 @@ $(document).ready(function(){
               
 
             })
+         });
+         function delet(){
+            var d1= $("#tieude1").html();
+            var d2= $("#node").val();
+            var d3= $("#time").html();
+            var d4= $("#date").html();
+           $("#data1").val(d1+"/"+d2+"/"+d3+"/"+d4+"/"+color1+"/"+color2+"/"+color3);
+           $("#node").val("");
+         }
+         $("#delete").click(function(){
+           delet();
+           $("#showhopthoai").hide();
          })
 });
 

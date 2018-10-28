@@ -30,3 +30,17 @@ width: 100em;
 height: 100%;
 overflow-wrap: break-word;
 }
+#save{
+width: 100px;
+height: 30px;
+background-image: url(/image/save1.png);
+background-repeat: no-repeat;
+border-radius: 4px;
+}
+#delete{
+    width: 100px;
+    height: 30px;
+    background-image: url(/image/delete.png);
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    }

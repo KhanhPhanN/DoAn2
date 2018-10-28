@@ -77,10 +77,11 @@
                     
                     </div>
                         <div class="col-sm-9">  <div id = "chi-tiet">
-                                <label >Ngày: </label><span id = "ngay"><%- ngay%></span><br>
-                                <label >Tháng: </label><span id = "thangcv"><%- thang%></span><br>
+                                <label >Ngày: </label><span id = "ngay"><%- ngay%></span>
+                                <label >Tháng: </label><span id = "thangcv"><%- thang%></span>
                                 <label >Năm: </label><span id = "namcv"><%- nam%></span><br>
-                                <label > Thời gian công việc trong ngày </label>
+                                <label > Thời gian công việc trong ngày </label><br>
+                                <input type="button" value="Đặt lịch cho cả ngày" id ="allday"><br><br>
                                 <% include hopthoai%> 
                                <div id ="container-table">  <% include drawnode%>
                             </div>
@@ -110,6 +111,9 @@
         }
     }
     <% if(!user){%>
+        $("#allday").click(function(){
+        alert("Bạn chưa đăng nhập")
+         })
 for(var i =1 ;i<49;i++){
     $("#f"+i).click(function(){
         alert("Bạn chưa đăng nhập")
@@ -117,13 +121,18 @@ for(var i =1 ;i<49;i++){
 }
 <%}else{%>
  <% include nodework %>
+ var end = "23:59";
  <% work.forEach(function(data){%>
- if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){       
+ if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){ 
+    if("<%- data.time_end%>".valueOf()=="23:59".valueOf()){
+        $(".descri").attr("style","background-color: #5d95ef");
+            $("#f"+1).html("<%- data.describle%>");
+     }    
 for(var i =1; i<=48; i++){
     var time1 = $("#t"+i).html().split("-"); 
     var timestart =  time1[0];
     var timesend =  time1[1];
-        if(timestart==<%- data.time_start%>){
+        if(time1[0].valueOf()=="<%- data.time_start%>".valueOf()){
             $("#f"+i).attr("style","background-color: #5d95ef");
             $("#f"+i).html("<%- data.describle%>");
         }
