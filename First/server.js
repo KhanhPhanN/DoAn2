@@ -65,13 +65,16 @@ app.post('/register/account', function (req, res) {
 var result1=0;
 app.get("/", function(req,res){ 
     var current = new Date();
-    resultcolorstart = [{colorSinhNhat:" blue",colorCuocHop: "green", colorNhacNho: "yellow"}];
+    resultcolorstart = [{colorSinhNhat:"blue",colorCuocHop: "green", colorNhacNho: "yellow"}];
 res.render("lich",{
     user1: resultcolorstart,
     user : result1,
 ngay : current.getDate(),
 thang : current.getMonth()+1,
-nam: current.getFullYear()
+nam: current.getFullYear(),
+colorSinhnhat: "blue",
+colorCuochop: "green",
+colorNhacnho: "yellow"
 });
 })
 app.get("/login/account",function(req,res){
@@ -111,7 +114,6 @@ MongoClient.connect(urldata, function(err, db) {
     if (err) throw err;
     var current = new Date();
     if(!result1){
-
         res.render("ChiTiet",{
             user: result1,
             work : result,
@@ -158,7 +160,7 @@ colorNhacnho: resultName[0].colorNhacNho,
  
     });
 
-    app.post("/save", function(req,res1){
+    app.post("/save", function(req,res2){
     dataclient = req.body.data;
     datarev = dataclient.split("/");
     title = datarev[0];
@@ -184,56 +186,50 @@ MongoClient.connect(url, function(err, db) {
   dbo.collection("User ").updateOne(acc,color,function(err,res){
       if(err) throw err;
   })
-  var myobj = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year, describle: describle };
-  var myobj1 = {$set: {describle: describle }};
-  var where = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year}
+  var myobj  = { account: result1[0].account, title: title, time_start: time_start, time_end: time_end, day: day, month: month, year: year, describle: describle };
+  var myobj1 = {$set: {title: title,describle: describle }};
+  var where  = { account: result1[0].account, time_start: time_start, time_end: time_end, day: day, month: month, year: year}
   dbo.collection("EventCalendar").findOne(where,function(err ,result){
 if(err) throw err;
-dbo.collection("User ").find({account: userN}).toArray(function (err,res) {
+dbo.collection("User ").find({account: userN}).toArray(function (err,res1) {
     if(!result){
         dbo.collection("EventCalendar").insertOne(myobj, function(err, res) {
             if (err) throw err;
+            dbo.collection("EventCalendar").find().toArray(function(err,kq){
+                res2.render("lich1",{
+                    user: res1,
+                    work: kq,
+                    ngay : day,
+                    thang : month,
+                    nam : year,
+                    colorSinhnhat: res1[0].colorSinhNhat,
+                    colorCuochop: res1[0].colorCuocHop,
+                    colorNhacnho: res1[0].colorNhacNho,
+                });
+                db.close();
+              })
           });
-          dbo.collection("EventCalendar").find().toArray(function(err,kq){
-            console.log(res);
-            res1.render("lich1",{
-                user: res,
-                work: kq,
-                ngay : day,
-                thang : month,
-                nam : year,
-                title: title,
-                describle: describle,
-                time: time_start+'-'+time_end,
-                colorSinhnhat : res[0].colorSinhNhat,
-                colorCuochop: res[0].colorCuocHop,
-                colorNhacnho: res[0].colorNhacNho,
-            });
-            db.close();
-          })
+  
     
     
     }else{
         
         dbo.collection("EventCalendar").updateOne(where,myobj1, function(err, res) {
             if (err) throw err;
+            dbo.collection("EventCalendar").find().toArray(function(err,kq){
+                res2.render("lich1",{
+                    user: res1,
+                    work: kq,
+                    ngay : day,
+                    thang : month,
+                    nam : year,
+                    colorSinhnhat : res1[0].colorSinhnhat,
+                    colorCuochop: res1[0].colorCuocHop,
+                    colorNhacnho: res1[0].colorNhacNho,
+                });
+                db.close();
+              })
           });
-          dbo.collection("EventCalendar").find().toArray(function(err,kq){
-            res1.render("lich1",{
-                user: res,
-                work: kq,
-                ngay : day,
-                thang : month,
-                nam : year,
-                title: title,
-                describle: describle,
-                time: time_start+'-'+time_end,
-                colorSinhnhat : res[0].colorSinhnhat,
-                colorCuochop: res[0].colorCuocHop,
-                colorNhacnho: res[0].colorNhacNho,
-            });
-            db.close();
-          })
     
         
     }
@@ -330,8 +326,10 @@ app.post("/delete",function(req,res){
     ngay : current.getDate(),
     thang : current.getMonth()+1,
     nam: current.getFullYear(),
-    }
-    )
+    colorSinhnhat : result[0].colorSinhNhat,
+    colorCuochop: result[0].colorCuocHop,
+    colorNhacnho: result[0].colorNhacNho,
+    })
                     }else{
                         res.render('login');
                     }

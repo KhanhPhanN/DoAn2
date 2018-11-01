@@ -122,16 +122,46 @@ for(var i =1 ;i<49;i++){
  <% work.forEach(function(data){%>
  if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){    
     if("<%- data.time_end%>".valueOf()=="23:59".valueOf()){
-        $(".descri").attr("style","background-color: #5d95ef");
+        if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
+            $(".descri").attr("style","background-color: <%- colorSinhnhat%>");
             $("#f"+1).html("<%- data.describle%>");
+     }
+     else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
+            $(".descri").attr("style","background-color: <%- colorCuochop%>");
+            $("#f"+1).html("<%- data.describle%>");
+     }
+    else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
+            $(".descri").attr("style","background-color: <%- colorNhacnho%>");
+            $("#f"+1).html("<%- data.describle%>");
+     }
+     else{
+        $(".descri").attr("style","background-color: blue");
+            $("#f"+1).html("<%- data.describle%>");
+
+     }
      } 
 for(var i =1; i<=48; i++){
     var time1 = $("#t"+i).html().split("-"); 
     var timestart =  time1[0];
     var timesend =  time1[1];
         if(time1[0].valueOf()=="<%- data.time_start%>".valueOf()){
-            $("#f"+i).attr("style","background-color: #5d95ef");
+            if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
+            $("#f"+i).attr("style","background-color: <%- colorSinhnhat%>");
             $("#f"+i).html("<%- data.describle%>");
+     }
+     else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
+            $("#f"+i).attr("style","background-color: <%- colorCuochop%>");
+            $("#f"+i).html("<%- data.describle%>");
+     }
+     else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
+            $("#f"+i).attr("style","background-color: <%- colorNhacnho%>");
+            $("#f"+i).html("<%- data.describle%>");
+     }
+     else{
+        $("#f"+i).attr("style","background-color: blue");
+            $("#f"+i).html("<%- data.describle%>");
+
+     }
         }
     }
 }
