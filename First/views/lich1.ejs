@@ -81,7 +81,7 @@
                                 <label >Tháng: </label><span id = "thangcv"><%- thang%></span>
                                 <label >Năm: </label><span id = "namcv"><%- nam%></span><br>
                                 <label > Thời gian công việc trong ngày </label><br>
-                                <input type="button" value="Đặt lịch cho cả ngày" id ="allday"><br><br>
+                                <input type="button" value="Đặt lịch cho cả ngày" id ="allday"><br>   <div id = "allday-work"></div>
                                 <% include hopthoai%> 
                                <div id ="container-table">  <% include drawnode%>
                             </div>
@@ -113,20 +113,20 @@ for(var i =1 ;i<49;i++){
  if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){ 
     if("<%- data.time_end%>".valueOf()=="23:59".valueOf()){
         if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
-            $(".descri").attr("style","background-color: <%- colorSinhnhat%>");
-            $("#f"+1).html("<%- data.describle%>");
+            $("#allday-work").attr("style","background-color: <%- colorSinhnhat%>");
+            $("#allday-work").html("<%- data.describle%>");
      }
      else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
-            $(".descri").attr("style","background-color: <%- colorCuochop%>");
-            $("#f"+1).html("<%- data.describle%>");
+            $("#allday-work").attr("style","background-color: <%- colorCuochop%>");
+            $("#allday-work").html("<%- data.describle%>");
      }
      else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
-            $(".descri").attr("style","background-color: <%- colorNhacnho%>");
-            $("#f"+1).html("<%- data.describle%>");
+            $("#allday-work").attr("style","background-color: <%- colorNhacnho%>");
+            $("#allday-work").html("<%- data.describle%>");
      }
      else{
-        $(".descri").attr("style","background-color: blue");
-            $("#f"+1).html("<%- data.describle%>");
+        $("#allday-work").attr("style","background-color: blue");
+            $("#allday-work").html("<%- data.describle%>");
      }
      }    
 for(var i =1; i<=48; i++){

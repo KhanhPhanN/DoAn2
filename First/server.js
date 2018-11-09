@@ -46,26 +46,50 @@ app.post('/register/account', function (req, res) {
 	var password2 = req.body.user_password_2;
 
 	// Validation
-	req.checkBody('name', 'User Name is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.user_password_2);
-    req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('email', 'Email is not valid').isEmail();
-
-	var errors = req.validationErrors();
-	if (errors) {
+	if (name==""||email==""||password==""||password2=="") {
 		res.render('register', {
-			errors: errors
+			errors: [{msg: "Bạn nhập thiếu dữ liệu"}]
 		});
-    }else {
-	     res.render("login")
+    }else{
+    if(password!=password2){
+        res.render('register', {
+			errors: [{msg: "Mật khẩu không khớp"}]
+		});
+    }
+    else {
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/";
+        
+        MongoClient.connect(url, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db("Calendar");
+          var query = {account: name, password: password, gmail: email,colorSinhNhat: "blue",colorCuocHop: "green",colorNhacNho:"yellow"};
+          dbo.collection("User ").findOne({account: name},function(err, result) {
+            if (err) throw err;
+            if(result){
+
+                res.render('register', {
+                    errors: [{msg: "Tài khoản đã tồn tại"}]
+                });
+
+            }else{
+
+                dbo.collection("User ").insertOne(query,function(err, result) {
+                    if (err) throw err;
+                  })
+
+                  res.render("login")
+            }
+          })
+        })
 	}
-    
+}
 });
 var result1=0;
 app.get("/", function(req,res){ 
     var current = new Date();
     resultcolorstart = [{colorSinhNhat:"blue",colorCuocHop: "green", colorNhacNho: "yellow"}];
+    result1=0
 res.render("lich",{
     user1: resultcolorstart,
     user : result1,
