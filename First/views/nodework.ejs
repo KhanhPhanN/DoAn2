@@ -1,244 +1,740 @@
-$("#allday").click(function(){
-    $("#time").html("0:01-23:59");
+ $("#allday-work").click(function(){
+    $("#time_start").val("1")
+    $("#time_end").val("48")
+    $("#node").val($("#allday-work").html())
     $("#showhopthoai").show();
  })
-$("#f1").mouseup( function(){
-    $("#time").html($("#t1").html())
+ var time=["-1","0","0:30","1","1:30","2","2:30","3","3:30","4","4:30","5","5:30","6","6:30","7","7:30","8","8:30","9","9:30","10","10:30","11","11:30","12","12:30","13","13:30","14","14:30","15","15:30","16","16:30","17","17:30","18","18:30","19","19:30","20","20:30","21","21:30","22","22:30","23","23:30","0"]
+$("#f1").click( function(){
+    $("#time_start").val("1")
+    $("#time_end").html("")
+     for(var i=2;i<=48;i++){
+    $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+     }
     $("#node").val($("#f1").html())
     $("#showhopthoai").show()
 });
 $("#f2").click( function(){
-$("#time").html($("#t2").html())
+    $("#time_start").val("2")
+    $("#time_end").html("")
+    for(var i=3;i<=48;i++){
+            $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f2").html())
 $("#showhopthoai").show();
 });
 $("#f3").click( function(){
-$("#time").html($("#t3").html())
+    $("#time_start").val("3")
+    $("#time_end").html("")
+    for(var i=4;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f3").html())
 $("#showhopthoai").show();
 });
 $("#f4").click( function(){
-$("#time").html($("#t4").html())
+    $("#time_start").val("4")
+    $("#time_end").html("")
+    for(var i=5;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f4").html())
 $("#showhopthoai").show();
 });
 $("#f5").click( function(){
-$("#time").html($("#t5").html())
+    $("#time_start").val("5")
+    $("#time_end").html("")
+    for(var i=6;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f5").html())
 $("#showhopthoai").show();
 });
 $("#f6").click( function(){
-$("#time").html($("#t6").html())
+    $("#time_start").val("6")
+    $("#time_end").html("")
+    for(var i=7;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f6").html())
 $("#showhopthoai").show();
 });
 $("#f7").click( function(){
-$("#time").html($("#t7").html())
+    $("#time_start").val("7")
+    $("#time_end").html("")
+    for(var i=8;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f7").html())
 $("#showhopthoai").show();
 });
 $("#f8").click( function(){
-$("#time").html($("#t8").html())
+    $("#time_start").val("8")
+    $("#time_end").html("")
+     for(var i=9;i<=48;i++){
+    $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+     }
 $("#node").val($("#f8").html())
 $("#showhopthoai").show();
 });
 $("#f9").click( function(){
-$("#time").html($("#t9").html())
+    $("#time_end").html("")
+    for(var i=10;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
+    $("#time_end").val("10")
 $("#node").val($("#f9").html())
 $("#showhopthoai").show();
 });
 $("#f10").click( function(){
-$("#time").html($("#t10").html())
+    $("#time_start").val("10")
+    $("#time_end").html("")
+    for(var i=11;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f10").html())
 $("#showhopthoai").show();
 });
 $("#f11").click( function(){
-$("#time").html($("#t11").html())
+    $("#time_start").val("11")
+    $("#time_end").html("")
+    for(var i=12;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f11").html())
 $("#showhopthoai").show();
 });
 $("#f12").click( function(){
-$("#time").html($("#t12").html())
+    $("#time_start").val("12")
+    $("#time_end").html("")
+    for(var i=13;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f12").html())
 $("#showhopthoai").show();
 });
 $("#f13").click( function(){
-$("#time").html($("#t13").html())
+    $("#time_start").val("13")
+    $("#time_end").html("")
+    for(var i=14;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f13").html())
 $("#showhopthoai").show();
 });
 $("#f14").click( function(){
-$("#time").html($("#t14").html())
+    $("#time_end").html("")
+    for(var i=15;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
+    $("#time_end").val("15")
 $("#node").val($("#f14").html())
 $("#showhopthoai").show();
 });
 $("#f15").click( function(){
-$("#time").html($("#t15").html())
+    $("#time_start").val("15")
+    $("#time_end").html("")
+    for(var i=16;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f15").html())
 $("#showhopthoai").show();
 });
 $("#f16").click( function(){
-$("#time").html($("#t16").html())
+    $("#time_start").val("16")
+    $("#time_end").html("")
+    for(var i=17;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f16").html())
 $("#showhopthoai").show();
 });
 $("#f17").click( function(){
-$("#time").html($("#t17").html())
+    $("#time_start").val("17")
+    $("#time_end").html("")
+    for(var i=18;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f17").html())
 $("#showhopthoai").show();
 });
 $("#f18").click( function(){
-$("#time").html($("#t18").html())
+    $("#time_start").val("18")
+    $("#time_end").html("")
+    for(var i=19;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f18").html())
 $("#showhopthoai").show();
 });
 $("#f19").click( function(){
-$("#time").html($("#t19").html())
+    $("#time_start").val("19")
+    $("#time_end").html("")
+    for(var i=20;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f19").html())
 $("#showhopthoai").show();
 });
 $("#f20").click( function(){
-$("#time").html($("#t20").html())
+    $("#time_start").val("20")
+    $("#time_end").html("")
+    for(var i=21;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f20").html())
 $("#showhopthoai").show();
 });
 $("#f21").click( function(){
-$("#time").html($("#t21").html())
+    $("#time_start").val("21")
+    $("#time_end").html("")
+    for(var i=22;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f21").html())
 $("#showhopthoai").show();
 });
 $("#f22").click( function(){
-$("#time").html($("#t22").html())
+    $("#time_start").val("22")
+    $("#time_end").html("")
+    for(var i=23;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f22").html())
 $("#showhopthoai").show();
 });
 $("#f23").click( function(){
-$("#time").html($("#t23").html())
+    $("#time_start").val("23")
+    $("#time_end").html("")
+    for(var i=24;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f23").html())
 $("#showhopthoai").show();
 });
 $("#f24").click( function(){
-$("#time").html($("#t24").html())
+    $("#time_start").val("24")
+    $("#time_end").html("")
+    for(var i=25;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f24").html())
 $("#showhopthoai").show();
 });
 $("#f25").click( function(){
-$("#time").html($("#t25").html())
+    $("#time_start").val("25")
+    $("#time_end").html("")
+    for(var i=26;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f25").html())
 $("#showhopthoai").show();
 });
 $("#f26").click( function(){
-$("#time").html($("#t26").html())
+    $("#time_start").val("26")
+    $("#time_end").html("")
+    for(var i=27;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f26").html())
 $("#showhopthoai").show();
 });
 $("#f27").click( function(){
-$("#time").html($("#t27").html())
+    $("#time_start").val("27")
+    $("#time_end").html("")
+    for(var i=28;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f27").html())
 $("#showhopthoai").show();
 });
 $("#f28").click( function(){
-$("#time").html($("#t28").html())
+    $("#time_start").val("28")
+    $("#time_end").html("")
+    for(var i=29;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f28").html())
 $("#showhopthoai").show();
 });
 $("#f29").click( function(){
-$("#time").html($("#t29").html())
+    $("#time_start").val("29")
+    $("#time_end").html("")
+    for(var i=30;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f29").html())
 $("#showhopthoai").show();
 });
 $("#f30").click( function(){
-$("#time").html($("#t30").html())
+    $("#time_start").val("30")
+    $("#time_end").html("")
+    for(var i=31;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f30").html())
 $("#showhopthoai").show();
 });
 $("#f31").click( function(){
-$("#time").html($("#t31").html())
+    $("#time_start").val("31")
+    $("#time_end").html("")
+    for(var i=32;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f31").html())
 $("#showhopthoai").show();
 });
 $("#f32").click( function(){
-$("#time").html($("#t32").html())
+    $("#time_start").val("32")
+    $("#time_end").html("")
+    for(var i=33;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f32").html())
 $("#showhopthoai").show();
 });
 $("#f33").click( function(){
-$("#time").html($("#t33").html())
+    $("#time_start").val("33")
+    $("#time_end").html("")
+    for(var i=34;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f32").html())
 $("#showhopthoai").show();
 });
 $("#f34").click( function(){
-$("#time").html($("#t34").html())
+    $("#time_start").val("34")
+    $("#time_end").html("")
+    for(var i=35;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f34").html())
 $("#showhopthoai").show();
 });
 $("#f35").click( function(){
-$("#time").html($("#t35").html())
+    $("#time_start").val("35")
+    $("#time_end").html("")
+    for(var i=36;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f35").html())
 $("#showhopthoai").show();
 });
 $("#f36").click( function(){
-$("#time").html($("#t36").html())
+    $("#time_start").val("36")
+    $("#time_end").html("")
+    for(var i=37;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f36").html())
 $("#showhopthoai").show();
 });
 $("#f37").click( function(){
-$("#time").html($("#t37").html())
+    $("#time_start").val("37")
+    $("#time_end").html("")
+    for(var i=38;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f37").html())
 $("#showhopthoai").show();
 });
 $("#f38").click( function(){
-$("#time").html($("#t38").html())
+    $("#time_start").val("38")
+    $("#time_end").html("")
+    for(var i=39;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f38").html())
 $("#showhopthoai").show();
 });
 $("#f39").click( function(){
-$("#time").html($("#t39").html())
+    $("#time_start").val("39")
+    $("#time_end").html("")
+    for(var i=40;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f39").html())
 $("#showhopthoai").show();
 });
 $("#f40").click( function(){
-$("#time").html($("#t40").html())
+    $("#time_start").val("40")
+    $("#time_end").html("")
+    for(var i=41;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f40").html())
 $("#showhopthoai").show();
 });
 $("#f41").click( function(){
-$("#time").html($("#t41").html())
+    $("#time_start").val("41")
+    $("#time_end").html("")
+    for(var i=42;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f41").html())
 $("#showhopthoai").show();
 });
 $("#f42").click( function(){
-$("#time").html($("#t42").html())
+    $("#time_start").val("42")
+    $("#time_end").html("")
+    for(var i=43;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f42").html())
 $("#showhopthoai").show();
 });
 $("#f43").click( function(){
-$("#time").html($("#t43").html())
+    $("#time_start").val("43")
+    $("#time_end").html("")
+    for(var i=44;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f43").html())
 $("#showhopthoai").show();
 });
 $("#f44").click( function(){
-$("#time").html($("#t44").html())
+    $("#time_start").val("44")
+    $("#time_end").html("")
+    for(var i=45;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f44").html())
 $("#showhopthoai").show();
 });
 $("#f45").click( function(){
-$("#time").html($("#t45").html())
+    $("#time_start").val("45")
+    $("#time_end").html("")
+     for(var i=46;i<=48;i++){
+    $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+     }
 $("#node").val($("#f45").html())
 $("#showhopthoai").show();
 });
 $("#f46").click( function(){
-$("#time").html($("#t46").html())
+    $("#time_start").val("46")
+    $("#time_end").html("")
+     for(var i=47;i<=48;i++){
+    $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+     }
 $("#node").val($("#f46").html())
 $("#showhopthoai").show();
 });
 $("#f47").click( function(){
-$("#time").html($("#t47").html())
+    $("#time_start").val("47")
+    $("#time_end").html("")
+    for(var i=48;i<=48;i++){
+   $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+    }
 $("#node").val($("#f47").html())
 $("#showhopthoai").show();
 });
 $("#f48").click( function(){
-$("#time").html($("#t48").html())
+    $("#time_start").val("48")
+    $("#time_end").html("")
+   $("#time_end").append("<option value='"+i+"'>0</option>")
 $("#node").val($("#f48").html())
 $("#showhopthoai").show();
 });
+$("#d1").click( function(){
+    $("#time_start").val("1")
+    $("#time_end").val($("#e1").html())
+$("#node").val($("#d1").html())
+$("#showhopthoai").show();
+    })
+$("#d2").click( function(){
+    $("#time_start").val("2")
+    $("#time_end").val($("#e2").html())
+$("#node").val($("#d2").html())
+$("#showhopthoai").show();
+    })
+
+$("#d3").click( function(){
+        $("#time_start").val("3")
+        $("#time_end").val($("#e3").html())
+    $("#node").val($("#d3").html())
+    $("#showhopthoai").show();
+    })
+    $("#d4").click( function(){
+        $("#time_start").val("4")
+        $("#time_end").val($("#e4").html())
+    $("#node").val($("#d4").html())
+    $("#showhopthoai").show();
+    })
+    $("#d5").click( function(){
+        $("#time_start").val("5")
+        $("#time_end").val($("#e5").html())
+    $("#node").val($("#d5").html())
+    $("#showhopthoai").show();
+    })
+    $("#d6").click( function(){
+        $("#time_start").val("6")
+        $("#time_end").val($("#e6").html())
+    $("#node").val($("#d6").html())
+    $("#showhopthoai").show();
+    })
+    $("#d7").click( function(){
+        $("#time_start").val("7")
+        $("#time_end").val($("#e7").html())
+    $("#node").val($("#d7").html())
+    $("#showhopthoai").show();
+        })
+    $("#d8").click( function(){
+        $("#time_start").val("8")
+        $("#time_end").val($("#e8").html())
+    $("#node").val($("#d8").html())
+    $("#showhopthoai").show();
+        })
+    
+    $("#d9").click( function(){
+            $("#time_start").val("9")
+            $("#time_end").val($("#e9").html())
+        $("#node").val($("#d9").html())
+        $("#showhopthoai").show();
+        })
+        $("#d10").click( function(){
+            $("#time_start").val("10")
+            $("#time_end").val($("#e10").html())
+        $("#node").val($("#d10").html())
+        $("#showhopthoai").show();
+        })
+        $("#d11").click( function(){
+            $("#time_start").val("11")
+            $("#time_end").val($("#e11").html())
+        $("#node").val($("#d11").html())
+        $("#showhopthoai").show();
+        })
+        $("#d12").click( function(){
+            $("#time_start").val("12")
+            $("#time_end").val($("#e12").html())
+        $("#node").val($("#d12").html())
+        $("#showhopthoai").show();
+        })
+            
+        $("#d13").click( function(){
+            $("#time_start").val("13")
+            $("#time_end").val($("#e13").html())
+        $("#node").val($("#d13").html())
+        $("#showhopthoai").show();
+            })
+        $("#d14").click( function(){
+            $("#time_start").val("14")
+            $("#time_end").val($("#e14").html())
+        $("#node").val($("#d14").html())
+        $("#showhopthoai").show();
+            })
+        
+        $("#d15").click( function(){
+                $("#time_start").val("15")
+                $("#time_end").val($("#e15").html())
+            $("#node").val($("#d15").html())
+            $("#showhopthoai").show();
+            })
+            $("#d166").click( function(){
+                $("#time_start").val("16")
+                $("#time_end").val($("#e16").html())
+            $("#node").val($("#d16").html())
+            $("#showhopthoai").show();
+            })
+            $("#d17").click( function(){
+                $("#time_start").val("17")
+                $("#time_end").val($("#e17").html())
+            $("#node").val($("#d17").html())
+            $("#showhopthoai").show();
+            })
+            $("#d18").click( function(){
+                $("#time_start").val("18")
+                $("#time_end").val($("#e18").html())
+            $("#node").val($("#d18").html())
+            $("#showhopthoai").show();
+            })
+            $("#d19").click( function(){
+                $("#time_start").val("19")
+                $("#time_end").val($("#e19").html())
+            $("#node").val($("#d19").html())
+            $("#showhopthoai").show();
+                })
+            $("#d20").click( function(){
+                $("#time_start").val("20")
+                $("#time_end").val($("#e20").html())
+            $("#node").val($("#d20").html())
+            $("#showhopthoai").show();
+                })
+            
+            $("#d21").click( function(){
+                    $("#time_start").val("21")
+                    $("#time_end").val($("#e21").html())
+                $("#node").val($("#d21").html())
+                $("#showhopthoai").show();
+                })
+                $("#d22").click( function(){
+                    $("#time_start").val("22")
+                    $("#time_end").val($("#e22").html())
+                $("#node").val($("#d22").html())
+                $("#showhopthoai").show();
+                })
+                $("#d23").click( function(){
+                    $("#time_start").val("23")
+                    $("#time_end").val($("#e23").html())
+                $("#node").val($("#d23").html())
+                $("#showhopthoai").show();
+                })
+                $("#d24").click( function(){
+                    $("#time_start").val("24")
+                    $("#time_end").val($("#e24").html())
+                $("#node").val($("#d24").html())
+                $("#showhopthoai").show();
+                })
+                    
+                $("#d25").click( function(){
+                    $("#time_start").val("25")
+                    $("#time_end").val($("#e25").html())
+                $("#node").val($("#d25").html())
+                $("#showhopthoai").show();
+                    })
+                $("#d26").click( function(){
+                    $("#time_start").val("26")
+                    $("#time_end").val($("#e26").html())
+                $("#node").val($("#d26").html())
+                $("#showhopthoai").show();
+                    })
+                
+                $("#d27").click( function(){
+                        $("#time_start").val("27")
+                        $("#time_end").val($("#e27").html())
+                    $("#node").val($("#d27").html())
+                    $("#showhopthoai").show();
+                    })
+                    $("#d28").click( function(){
+                        $("#time_start").val("28")
+                        $("#time_end").val($("#e28").html())
+                    $("#node").val($("#d28").html())
+                    $("#showhopthoai").show();
+                    })
+                    $("#d29").click( function(){
+                        $("#time_start").val("29")
+                        $("#time_end").val($("#e29").html())
+                    $("#node").val($("#d29").html())
+                    $("#showhopthoai").show();
+                    })
+                    $("#d30").click( function(){
+                        $("#time_start").val("30")
+                        $("#time_end").val($("#e30").html())
+                    $("#node").val($("#d30").html())
+                    $("#showhopthoai").show();
+                    })
+                        
+                    $("#d31").click( function(){
+                        $("#time_start").val("31")
+                        $("#time_end").val($("#e31").html())
+                    $("#node").val($("#d31").html())
+                    $("#showhopthoai").show();
+                        })
+                    $("#d32").click( function(){
+                        $("#time_start").val("32")
+                        $("#time_end").val($("#e32").html())
+                    $("#node").val($("#d32").html())
+                    $("#showhopthoai").show();
+                        })
+                    
+                    $("#d33").click( function(){
+                            $("#time_start").val("33")
+                            $("#time_end").val($("#e33").html())
+                        $("#node").val($("#d33").html())
+                        $("#showhopthoai").show();
+                        })
+                        $("#d34").click( function(){
+                            $("#time_start").val("34")
+                            $("#time_end").val($("#e34").html())
+                        $("#node").val($("#d34").html())
+                        $("#showhopthoai").show();
+                        })
+                        $("#d35").click( function(){
+                            $("#time_start").val("35")
+                            $("#time_end").val($("#e35").html())
+                        $("#node").val($("#d35").html())
+                        $("#showhopthoai").show();
+                        })
+                        $("#d36").click( function(){
+                            $("#time_start").val("36")
+                            $("#time_end").val($("#e36").html())
+                        $("#node").val($("#d36").html())
+                        $("#showhopthoai").show();
+                        })
+                            
+                        $("#d37").click( function(){
+                            $("#time_start").val("37")
+                            $("#time_end").val($("#e37").html())
+                        $("#node").val($("#d37").html())
+                        $("#showhopthoai").show();
+                            })
+                        $("#d38").click( function(){
+                            $("#time_start").val("38")
+                            $("#time_end").val($("#e38").html())
+                        $("#node").val($("#d38").html())
+                        $("#showhopthoai").show();
+                            })
+                        
+                        $("#d39").click( function(){
+                                $("#time_start").val("39")
+                                $("#time_end").val($("#e39").html())
+                            $("#node").val($("#d39").html())
+                            $("#showhopthoai").show();
+                            })
+                            $("#d40").click( function(){
+                                $("#time_start").val("40")
+                                $("#time_end").val($("#e40").html())
+                            $("#node").val($("#d40").html())
+                            $("#showhopthoai").show();
+                            })
+                            $("#d41").click( function(){
+                                $("#time_start").val("41")
+                                $("#time_end").val($("#e41").html())
+                            $("#node").val($("#d41").html())
+                            $("#showhopthoai").show();
+                            })
+                            $("#d42").click( function(){
+                                $("#time_start").val("42")
+                                $("#time_end").val($("#e42").html())
+                            $("#node").val($("#d42").html())
+                            $("#showhopthoai").show();
+                            })
+                                
+                            $("#d43").click( function(){
+                                $("#time_start").val("43")
+                                $("#time_end").val($("#e43").html())
+                            $("#node").val($("#d43").html())
+                            $("#showhopthoai").show();
+                                })
+                            $("#d44").click( function(){
+                                $("#time_start").val("44")
+                                $("#time_end").val($("#e44").html())
+                            $("#node").val($("#d44").html())
+                            $("#showhopthoai").show();
+                                })
+                            
+                            $("#d45").click( function(){
+                                    $("#time_start").val("45")
+                                    $("#time_end").val($("#e45").html())
+                                $("#node").val($("#d45").html())
+                                $("#showhopthoai").show();
+                                })
+                                $("#d46").click( function(){
+                                    $("#time_start").val("46")
+                                    $("#time_end").val($("#e46").html())
+                                $("#node").val($("#d46").html())
+                                $("#showhopthoai").show();
+                                })
+                                $("#d47").click( function(){
+                                    $("#time_start").val("47")
+                                    $("#time_end").val($("#e47").html())
+                                $("#node").val($("#d47").html())
+                                $("#showhopthoai").show();
+                                })
+                                $("#d48").click( function(){
+                                    $("#time_start").val("48")
+                                    $("#time_end").val($("#e48").html())
+                                $("#node").val($("#d48").html())
+                                $("#showhopthoai").show();
+                                })
+                                    
+                                                                                                                      

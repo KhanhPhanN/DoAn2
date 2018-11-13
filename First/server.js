@@ -134,13 +134,27 @@ var data = url.split("-");
 MongoClient.connect(urldata, function(err, db) {
   if (err) throw err;
   var dbo = db.db("Calendar");
-  dbo.collection("EventCalendar").find({account: userN,day: data[0], month: data[1], year: data[2]}).toArray(function(err, result) {
+  dbo.collection("EventCalendar").find({account: userN,day: data[0], month: data[1], year: data[2]}).toArray(function(err, event) {
     if (err) throw err;
     var current = new Date();
+    for(var i=0;i<event.length;i++)
+    {
+        for(var j=i+1;j<event.length;j++)
+        {
+            if(event[i].time_start>event[j].time_start)
+               {
+
+                var temp;
+               temp=event[i];
+               event[i]=event[j];
+               event[j]=temp;
+               }
+        }
+    }
     if(!result1){
         res.render("ChiTiet",{
             user: result1,
-            work : result,
+            work : event,
             ngay : data[0],
             thang: data[1],
             nam  : data[2],
@@ -157,9 +171,11 @@ MongoClient.connect(urldata, function(err, db) {
 dbo.collection("User ").find({account: userN}).toArray(function(err, resultName){
 
 if(err) throw err;
+
+db.close();
 res.render("ChiTiet",{
     user: resultName,
-    work : result,
+    work : event,
     ngay : data[0],
     thang: data[1],
     nam  : data[2],
@@ -178,7 +194,6 @@ colorNhacnho: resultName[0].colorNhacNho,
   
 
 
-    db.close();
   });
 });
  
@@ -190,8 +205,8 @@ colorNhacnho: resultName[0].colorNhacNho,
     title = datarev[0];
     describle = datarev[1];
     time = datarev[2].split("-");
-    time_start = time[0];
-    time_end   = time[1];
+    time_start =parseInt(time[0]);
+    time_end   = parseInt(time[1]);
     full = datarev[3].split("-");
     day = full[0];
     month = full[1];
@@ -219,10 +234,25 @@ dbo.collection("User ").find({account: userN}).toArray(function (err,res1) {
     if(!result){
         dbo.collection("EventCalendar").insertOne(myobj, function(err, res) {
             if (err) throw err;
-            dbo.collection("EventCalendar").find().toArray(function(err,kq){
+            dbo.collection("EventCalendar").find({account: userN,day: day, month: month, year: year}).toArray(function(err,event){
+                for(var i=0;i<event.length;i++)
+                {
+                    for(var j=i+1;j<event.length;j++)
+                    {
+                        if(event[i].time_start>event[j].time_start)
+                           {
+
+                            var temp;
+                           temp=event[i];
+                           event[i]=event[j];
+                           event[j]=temp;
+                           }
+                    }
+                }
+               
                 res2.render("lich1",{
                     user: res1,
-                    work: kq,
+                    work: event,
                     ngay : day,
                     thang : month,
                     nam : year,
@@ -240,10 +270,25 @@ dbo.collection("User ").find({account: userN}).toArray(function (err,res1) {
         
         dbo.collection("EventCalendar").updateOne(where,myobj1, function(err, res) {
             if (err) throw err;
-            dbo.collection("EventCalendar").find().toArray(function(err,kq){
+            dbo.collection("EventCalendar").find({account: userN,day: day, month: month, year: year}).toArray(function(err,event){
+                for(var i=0;i<event.length;i++)
+                {
+                    for(var j=i+1;j<event.length;j++)
+                    {
+                        if(event[i].time_start>event[j].time_start)
+                           {
+
+                            var temp;
+                           temp=event[i];
+                           event[i]=event[j];
+                           event[j]=temp;
+                           }
+                    }
+                }
+
                 res2.render("lich1",{
                     user: res1,
-                    work: kq,
+                    work: event,
                     ngay : day,
                     thang : month,
                     nam : year,
@@ -275,8 +320,8 @@ app.post("/delete",function(req,res){
    var titled = datarevd[0];
    var describled = datarevd[1];
    var timed = datarevd[2].split("-");
-   var time_startd = timed[0];
-   var time_endd   = timed[1];
+   var time_startd =parseInt(timed[0]);
+   var time_endd   = parseInt(timed[1]);
    var fulld = datarevd[3].split("-");
    var dayd = fulld[0];
    var monthd = fulld[1];
@@ -299,10 +344,24 @@ app.post("/delete",function(req,res){
      });
      dbo.collection("User ").find({account: userN}).toArray(function(err, info){
 
-        dbo.collection("EventCalendar").find().toArray(function(err,kq){
+        dbo.collection("EventCalendar").find({account: userN,day: dayd, month: monthd, year: yeard}).toArray(function(err,event){
+            for(var i=0;i<event.length;i++)
+            {
+                for(var j=i+1;j<event.length;j++)
+                {
+                    if(event[i].time_start>event[j].time_start)
+                       {
+
+                        var temp;
+                       temp=event[i];
+                       event[i]=event[j];
+                       event[j]=temp;
+                       }
+                }
+            }
             res.render("lich1",{
                 user: info,
-                work: kq,
+                work: event,
                 ngay : dayd,
                 thang : monthd,
                 nam : yeard,
@@ -330,19 +389,34 @@ app.post("/delete",function(req,res){
              var password = req.body.user_password; 
             var MongoClient = require('mongodb').MongoClient;
             var url = "mongodb://localhost:27017/";
-            
+            var current = new Date();
             MongoClient.connect(url, function(err, db) {
               if (err) throw err;
               var dbo = db.db("Calendar");
               var query = {account: user_name, password: password};
+              var dk={account: user_name,day: String(current.getDate()), month: String(current.getMonth()+1), year: String(current.getFullYear())}
               dbo.collection("User ").find(query).toArray( function(err, result) {
                 if (err) throw err;
                 userN = user_name;
                 result1 = result;
-                dbo.collection("EventCalendar").find({account: user_name}).toArray(function(err1, event ){
+                dbo.collection("EventCalendar").find(dk).toArray(function(err1, event ){
                     if(result.length==1){
                         var color = [{colorSinhNhat: result[0].colorSinhNhat,colorCuocHop: result[0].colorCuocHop,colorNhacNho: result[0].colorNhacNho}]
-                        var current = new Date();
+                        for(var i=0;i<event.length;i++)
+                        {
+                            for(var j=i+1;j<event.length;j++)
+                            {
+                                if(event[i].time_start>event[j].time_start)
+                                   {
+
+                                    var temp;
+                                   temp=event[i];
+                                   event[i]=event[j];
+                                   event[j]=temp;
+                                   }
+                            }
+                        }
+                        console.log(event)
     res.render("lich",{
         user: result,
         user1: color,

@@ -13,7 +13,7 @@
     <!-- <script src="js/congviec.js"></script> -->
     <title>Document</title>
 </head>
-<body onload="KhoiDong1(<%- thang%>,<%- nam%>)" background='https://fptshop.com.vn/Uploads/images/2015/Tin-Tuc/Vichan/122016/anh-nen/tai-anh-nen-cuc-dep-cho-may-tinh-theo-chu-de-truu-tuong-fptshop-1.jpg'>
+<body onload="KhoiDong1(<%- thang%>,<%- nam%>)" background="http://i.imgur.com/qV5uuOz.jpg">
     <div class="container">
             <div id="header">
                     <% include header%>
@@ -80,7 +80,7 @@
                                 <label >Tháng: </label><span id = "thangcv"><%- thang%></span>
                                 <label >Năm: </label><span id = "namcv"><%- nam%></span><br>
                                 <label > Thời gian công việc trong ngày </label><br>
-                                <input type="button" value="Đặt lịch cho cả ngày" id ="allday"><br><div id = "allday-work"></div>
+                            <div id = "allday-work"></div>
                                 <% include hopthoai%>
                                <div id ="container-table">  <% include drawnode%>
                             </div>
@@ -117,55 +117,8 @@ for(var i =1 ;i<49;i++){
     })
 }
 <%}else{%>
- <% include nodework %>
- var end = "23:59";
- <% work.forEach(function(data){%>
- if((<%- ngay%>==<%- data.day%>)&& (<%- thang%>==<%- data.month%>)&& (<%- nam%>==<%- data.year%>)){    
-    if("<%- data.time_end%>".valueOf()=="23:59".valueOf()){
-        if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
-            $("#allday-work").attr("style","background-color: <%- colorSinhnhat%>");
-            $("#allday-work").html("<%- data.describle%>");
-     }
-     else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
-            $("#allday-work").attr("style","background-color: <%- colorCuochop%>");
-            $("#allday-work").html("<%- data.describle%>");
-     }
-    else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
-            $("#allday-work").attr("style","background-color: <%- colorNhacnho%>");
-            $("#allday-work").html("<%- data.describle%>");
-     }
-     else{
-        $("#allday-work").attr("style","background-color: blue");
-            $("#allday-work").html("<%- data.describle%>");
-
-     }
-     } 
-for(var i =1; i<=48; i++){
-    var time1 = $("#t"+i).html().split("-"); 
-    var timestart =  time1[0];
-    var timesend =  time1[1];
-        if(time1[0].valueOf()=="<%- data.time_start%>".valueOf()){
-            if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
-            $("#f"+i).attr("style","background-color: <%- colorSinhnhat%>");
-            $("#f"+i).html("<%- data.describle%>");
-     }
-     else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
-            $("#f"+i).attr("style","background-color: <%- colorCuochop%>");
-            $("#f"+i).html("<%- data.describle%>");
-     }
-     else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
-            $("#f"+i).attr("style","background-color: <%- colorNhacnho%>");
-            $("#f"+i).html("<%- data.describle%>");
-     }
-     else{
-        $("#f"+i).attr("style","background-color: blue");
-            $("#f"+i).html("<%- data.describle%>");
-
-     }
-        }
-    }
-}
-<%})%>
+    <% include showWork %>
+    <% include nodework %>
     <%}%>
             </script>
 </html>

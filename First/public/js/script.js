@@ -1,4 +1,11 @@
 var socket = io("http://localhost:3000");
+function change(){
+    var time=["0","0:30","1","1:30","2","2:30","3","3:30","4","4:30","5","5:30","6","6:30","7","7:30","8","8:30","9","9:30","10","10:30","11","11:30","12","12:30","13","13:30","14","14:30","15","15:30","16","16:30","17","17:30","18","18:30","19","19:30","20","20:30","21","21:30","22","22:30","23","23:30","0"]
+   $("#time_end").html("")
+    for(var i=parseInt($("#time_start").val());i<=47;i++){
+            $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+   }
+}
 function DanhSachNgay(nam,thang){
 if(thang==4||thang==6||thang==9||thang==11){
    return 30;
@@ -103,6 +110,7 @@ function ChayLui(nam,thang){
 $(document).ready(function(){
     $("#data").hide();
      $("#data1").hide();
+    
     $("#next").click(function(){
         ChayTang(parseInt($("#nam").html()),parseInt($("#thang").html()));
         });
@@ -211,14 +219,19 @@ $(document).ready(function(){
                 });
         
             });
+            
             function save(){
                 var d1= $("#tieude1").html();
                 var d2= $("#node").val();
-                var d3= $("#time").html();
+                var d3= $("#time_start").val()+"-"+$("#time_end").val();
                 var d4= $("#date").html();
                $("#data").val(d1+"/"+d2+"/"+d3+"/"+d4+"/"+color1+"/"+color2+"/"+color3);
                $("#node").val("");
             }
+            $("#allday").click(function(){
+            $("#time_start").val("1")
+            $("#time_end").val("48")
+             })
             $("#sn").click(function(){
                 $("#tieude1").html("Sinh nhật")
             })
@@ -239,14 +252,12 @@ $(document).ready(function(){
             })
          $("#container-table").click(function(){
             $("#container-table").mousemove(function(event){
-              
-
             })
          });
          function delet(){
             var d1= $("#tieude1").html();
             var d2= $("#node").val();
-            var d3= $("#time").html();
+            var d3= $("#time_start").val()+"-"+$("#time_end").val();
             var d4= $("#date").html();
            $("#data1").val(d1+"/"+d2+"/"+d3+"/"+d4+"/"+color1+"/"+color2+"/"+color3);
            $("#node").val("");
@@ -255,6 +266,10 @@ $(document).ready(function(){
            delet();
            $("#showhopthoai").hide();
          })
+
+        // $("#time_start").change(function(){
+        //     change()
+        // }) 
 });
 
 

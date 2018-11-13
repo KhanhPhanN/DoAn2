@@ -10,11 +10,112 @@
     <input type="text" name="data" id="data">
     <input type="submit" id = "save" value="Save" >
     <input type="button" value="Cancel" id="cancel">
-    <span id ="time" name="time"></span>
+    <select id ="time_start" onchange="change()">
+        <option value="1">0</option>
+        <option value="2">0:30</option>
+        <option value="3">1</option>
+        <option value="4">1:30</option>
+        <option value="5">2</option>
+        <option value="6">2:30</option>
+        <option value="7">3</option>
+        <option value="8">3:30</option>
+        <option value="9">4</option>
+        <option value="10">4:30</option>
+        <option value="11">5</option>
+        <option value="12">5:30</option>
+        <option value="13">6</option>
+        <option value="14">6:30</option>
+        <option value="15">7</option>
+        <option value="16">7:30</option>
+        <option value="17">8</option>
+        <option value="18">8:30</option>
+        <option value="19">9</option>
+        <option value="20">9:30</option>
+        <option value="21">10</option>
+        <option value="22">10:30</option>
+        <option value="23">11</option>
+        <option value="24">11:30</option>
+        <option value="25">12</option>
+        <option value="26">12:30</option>
+        <option value="27">13</option>
+        <option value="28">13:30</option>
+        <option value="29">14</option>
+        <option value="30">14:30</option>
+        <option value="31">15</option>
+        <option value="32">15:30</option>
+        <option value="33">16</option>
+        <option value="34">16:30</option>
+        <option value="35">17</option>
+        <option value="36">17:30</option>
+        <option value="37">18</option>
+        <option value="38">18:30</option>
+        <option value="39">19</option>
+        <option value="40">19:30</option>
+        <option value="41">20</option>
+        <option value="42">20:30</option>
+        <option value="43">21</option>
+        <option value="44">21:30</option>
+        <option value="45">22</option>
+        <option value="46">22:30</option>
+        <option value="47">23</option>
+        <option value="48">23:30</option>
+    </select>
+    <select id ="time_end">
+        <option value="1">0</option>
+        <option value="2">0:30</option>
+        <option value="3">1</option>
+        <option value="4">1:30</option>
+        <option value="5">2</option>
+        <option value="6">2:30</option>
+        <option value="7">3</option>
+        <option value="8">3:30</option>
+        <option value="9">4</option>
+        <option value="10">4:30</option>
+        <option value="11">5</option>
+        <option value="12">5:30</option>
+        <option value="13">6</option>
+        <option value="14">6:30</option>
+        <option value="15">7</option>
+        <option value="16">7:30</option>
+        <option value="17">8</option>
+        <option value="18">8:30</option>
+        <option value="19">9</option>
+        <option value="20">9:30</option>
+        <option value="21">10</option>
+        <option value="22">10:30</option>
+        <option value="23">11</option>
+        <option value="24">11:30</option>
+        <option value="25">12</option>
+        <option value="26">12:30</option>
+        <option value="27">13</option>
+        <option value="28">13:30</option>
+        <option value="29">14</option>
+        <option value="30">14:30</option>
+        <option value="31">15</option>
+        <option value="32">15:30</option>
+        <option value="33">16</option>
+        <option value="34">16:30</option>
+        <option value="35">17</option>
+        <option value="36">17:30</option>
+        <option value="37">18</option>
+        <option value="38">18:30</option>
+        <option value="39">19</option>
+        <option value="40">19:30</option>
+        <option value="41">20</option>
+        <option value="42">20:30</option>
+        <option value="43">21</option>
+        <option value="44">21:30</option>
+        <option value="45">22</option>
+        <option value="46">22:30</option>
+        <option value="47">23</option>
+        <option value="48">23:30</option>
+    </select>
     <label id="date"><%- ngay%>-<%- thang%>-<%- nam%></label>
     </form>
     <form method="POST" action="/delete">
     <input type="text" name="data1" id="data1">
-    <input type="submit" id="delete" value="Delete"></form>
+    <input type="submit" id="delete" value="Delete">
+    <input type="button" value="Đặt lịch cho cả ngày" id ="allday"></form>
+        
 </dialog>
 </div> 

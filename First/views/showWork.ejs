@@ -1,0 +1,45 @@
+
+ <% work.forEach(function(data){%>
+    if((<%- data.time_start%>==1)&&(<%- data.time_end%>==48)){
+        if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
+           $("#allday-work").attr("style","background-color: <%- colorSinhnhat%>");
+           $("#allday-work").html("<%- data.describle%>");
+    }
+   else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
+           $("#allday-work").attr("style","background-color: <%- colorCuochop%>");
+           $("#allday-work").html("<%- data.describle%>");
+    }
+   else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
+           $("#allday-work").attr("style","background-color: <%- colorNhacnho%>");
+           $("#allday-work").html("<%- data.describle%>");
+    }else{
+
+        $("#allday-work").attr("style","background-color: blue");
+           $("#allday-work").html("<%- data.describle%>");
+    }
+        }
+    <%})%>
+    $("#descri").html("");
+   L:  for(var i = 1; i<=48; i++){
+        <% work.forEach(function(data){%>
+       if((i==<%- data.time_start%>)&&(<%- data.time_end%>!=48)){
+           var ofset=<%- data.time_end%>*50-<%- data.time_start%>*50;
+           if("<%- data.title%>".valueOf()=="Sinh nhật".valueOf()){
+        $("#descri").append("<div class='descri' id='d"+i+"' style='background-color: <%- colorSinhnhat%>; height:"+ofset+"px'><%- data.describle%></div><div id='e"+i+"' hidden><%-data.time_end%></div>")
+    }
+   else if("<%- data.title%>".valueOf()=="Cuộc họp".valueOf()){
+    $("#descri").append("<div class='descri' id='d"+i+"'  style='background-color: <%- colorCuochop%>;  height:"+ofset+"px'><%- data.describle%></div><div id='e"+i+"' hidden><%-data.time_end%></div>")
+    }
+   else if("<%- data.title%>".valueOf()=="Nhắc nhở".valueOf()){
+    $("#descri").append("<div class='descri' id='d"+i+"'   style='background-color: <%- colorNhacnho%>;height:"+ofset+"px'><%- data.describle%></div><div id='e"+i+"' hidden><%-data.time_end%></div>")
+    }else{
+        $("#descri").append("<div class='descri' id='d"+i+"'  style='background-color: blue;height:"+ofset+"px'><%- data.describle%></div><div id='e"+i+"' hidden><%-data.time_end%></div>")
+
+    }
+    i=<%- data.time_end%>-1;
+    continue L;
+       }
+       <%})%>
+    $("#descri").append(" <tr><th class='descri' id = 'f"+i+"'></th></tr>")
+     
+   }
