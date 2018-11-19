@@ -3,7 +3,8 @@ function change(){
     var time=["0","0:30","1","1:30","2","2:30","3","3:30","4","4:30","5","5:30","6","6:30","7","7:30","8","8:30","9","9:30","10","10:30","11","11:30","12","12:30","13","13:30","14","14:30","15","15:30","16","16:30","17","17:30","18","18:30","19","19:30","20","20:30","21","21:30","22","22:30","23","23:30","0"]
    $("#time_end").html("")
     for(var i=parseInt($("#time_start").val());i<=47;i++){
-            $("#time_end").append("<option value='"+i+"'>"+time[i]+"</option>")
+        var x=i+1;
+            $("#time_end").append("<option value='"+x+"'>"+time[i]+"</option>")
    }
 }
 function DanhSachNgay(nam,thang){
@@ -241,13 +242,22 @@ $(document).ready(function(){
             $("#nn").click(function(){
                 $("#tieude1").html("Nhắc nhở")
             })
+            var time=["0","0:30","1","1:30","2","2:30","3","3:30","4","4:30","5","5:30","6","6:30","7","7:30","8","8:30","9","9:30","10","10:30","11","11:30","12","12:30","13","13:30","14","14:30","15","15:30","16","16:30","17","17:30","18","18:30","19","19:30","20","20:30","21","21:30","22","22:30","23","23:30","0"]
             $("#cancel").click(function(){
                 $("#node").val("");
+                $("#time_start").html("");
+                $("#time_end").html("");
+                for(var i=0;i<time.length;i++){
+                    var x=i+1;
+                    $("#time_start").append("<option value='"+x+"'>"+time[i]+"</option>")
+                    $("#time_end").append("<option value='"+x+"'>"+time[i]+"</option>")
+                }
                $("#showhopthoai").hide();
                $("#tieude1").html("Tiêu đề:");
             })
             $("#save").click(function(){
                 save();
+     
                $("#showhopthoai").hide();
             })
          $("#container-table").click(function(){

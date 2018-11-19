@@ -1,6 +1,6 @@
 <div id="showhopthoai">
     <dialog id="hopthoai" type="hidden">
-    <form method="POST" action="/save">
+    <form method="POST" action="/save" onsubmit="return checkWork()">
     <div id="tieude"><label id = "tieude1" name="tieude1">Tiêu đề:</label> 
     <span id="sn" class="type" style="background-color: <%- colorSinhnhat%>">Sinh nhật</span>
     <span id="ch" class="type" style="background-color: <%- colorCuochop%>">Cuộc họp</span>

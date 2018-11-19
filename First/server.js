@@ -292,7 +292,7 @@ dbo.collection("User ").find({account: userN}).toArray(function (err,res1) {
                     ngay : day,
                     thang : month,
                     nam : year,
-                    colorSinhnhat : res1[0].colorSinhnhat,
+                    colorSinhnhat : res1[0].colorSinhNhat,
                     colorCuochop: res1[0].colorCuocHop,
                     colorNhacnho: res1[0].colorNhacNho,
                 });
