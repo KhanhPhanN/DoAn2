@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname ,"public")));
@@ -39,7 +40,77 @@ socket.on("thong-tin", function(){
     
 })
 })
+var code, usern;
+app.get("/forget_password", function(req,res){
+    res.render("forgetPassword")
+})
+app.post("/forget_password", function(req,res){
+    var user = req.body.user_name;
+    usern=user;
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+    
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("Calendar");
+    dbo.collection("User ").findOne({account: user}, function(err, result){
+if(err) throw err;
+if(!result){
+    res.json({code: "5", message: "Failed", data: "Không tồm tại user"})
+}else{
+    var code_forget =  parseInt(Math.random()*(9999-1000)+1000);
+    code= code_forget;
+    var nodemailer = require("nodemailer")
+var transport = nodemailer.createTransport('smtps://kimtuthanhcf%40gmail.com:kimtuthanh@smtp.gmail.com')
+    var mailOptions ={
+        from: "Admin",
+        to: result.gmail,
+        subject: "FORGET PASSWORD",
+        text: code_forget.toString(),
+        html: "<p>"+ code_forget.toString() +"</p>"
+    }
+    transport.sendMail(mailOptions, function(err, info){
+    if(err) console.log(err)
+    console.log("Data: "+ info.response)
+    })
+    res.json({code: "1000", message: "OK"})
+}
+    })
+    
+    })
+})
+
+
+app.post("/code_password", function(req, res){
+    var c =  req.body.code;
+    console.log(usern)
+    if(parseInt(c) == code){
+       var pass = req.body.pass;
+       var pass1 = req.body.pass1;
+       if(pass!=pass1){
+        res.json({code: "5", message: "Failed", data: "Xác nhận mật khẩu không đúng"})
+       }else{
+        var MongoClient = require('mongodb').MongoClient;
+        var url = "mongodb://localhost:27017/";
+        MongoClient.connect(url, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db("Calendar");
+       dbo.collection("User ").updateOne({account: usern},{$set: {password: pass}}, function(err, r){
+           if(err) throw err
+           if(r)
+           res.json({code: "1000", message: "OK"})
+           else
+           res.json({code: "5", message: "Failed", data: "Lỗi "})
+           db.close();
+       })
+        })
+       }
+    }else{
+        res.json({code: "5", message: "Failed", data: "Sai mã xác nhận"})
+    }
+})
 app.post('/register/account', function (req, res) {
+
 	var name = req.body.username;
 	var email = req.body.email;
 	var password = req.body.user_password_1;
@@ -395,6 +466,7 @@ app.post("/delete",function(req,res){
               var dbo = db.db("Calendar");
               var query = {account: user_name, password: password};
               var dk={account: user_name,day: String(current.getDate()), month: String(current.getMonth()+1), year: String(current.getFullYear())}
+              var dk1={account: user_name,day: String(current.getDate()+1), month: String(current.getMonth()+1), year: String(current.getFullYear())}
               dbo.collection("User ").find(query).toArray( function(err, result) {
                 if (err) throw err;
                 userN = user_name;
@@ -416,7 +488,7 @@ app.post("/delete",function(req,res){
                                    }
                             }
                         }
-                        console.log(event)
+                      
     res.render("lich",{
         user: result,
         user1: color,

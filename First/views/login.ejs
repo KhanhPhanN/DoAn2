@@ -21,7 +21,7 @@
       margin-top: 10em;
      text-align: center
   }
- #formlogin a input{
+ .bt{
      width: 100px;
      height: 30px;
      margin: 10px;
@@ -38,9 +38,9 @@
                 <div id = "formlogin"><form method="POST" action="/login">
                 <input type="text" placeholder="User name" class="ac" name = "user_name"><br>
                 <input type="password" placeholder="Password" class="ac" name = "user_password"><br>
-                <a href="#"><span id="quen">Forger Password</span></a><br>
-                <input type="submit" value="Login">
-                <a href="/register"><input type="button" value="Register"></a>
+                <a href="/forget_password"><span id="quen">Forger Password</span></a><br>
+                <input class="bt" type="submit" value="Login">
+                <a href="/register"><input class="bt" type="button" value="Register"></a>
                 </form></div>
         </div>
 
